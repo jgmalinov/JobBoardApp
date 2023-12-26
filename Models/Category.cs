@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace JobBoardApp.Models;
 
 public class Category
 {
     public int Id { get; set; }
+    [Required]
     public string Name { get; set; }
     public Technologies Technologies { get; set; }
 }

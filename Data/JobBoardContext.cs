@@ -20,11 +20,12 @@ public class JobBoardContext : DbContext
                 v => v.ToString(),
                 v => (Technologies) Enum.Parse(typeof(Technologies), v)
             );
-
+        modelBuilder.Entity<User>().ToTable("Users");
+        modelBuilder.Entity<Person>().HasBaseType<User>();
+        modelBuilder.Entity<Company>().HasBaseType<User>();
     }
 
     public DbSet<Category> Categories;
     public DbSet<JobPosting> JobPostings;
-    public DbSet<Company> Companies;
-    public DbSet<Person> People;
+    public DbSet<User> Users;
 }
